@@ -1,0 +1,32 @@
+.users {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.user {
+  background-color: bisque;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.user:hover {
+  transform: scale(1.02);
+}
+
+img {
+  border-radius: 8px;
+}
+
+@media (max-width: 750px) {
+  .users {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .users {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

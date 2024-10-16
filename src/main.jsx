@@ -1,8 +1,6 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 
-import './index.css';
+import App from "./Components/App";
+import "./Styles/Styles.css";
 
-createRoot(document.getElementById('root')).render(
-  <h1>Real Estate Website</h1>
-);
+createRoot(document.getElementById("root")).render(<App />);
