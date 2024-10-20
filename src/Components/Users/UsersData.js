@@ -16,12 +16,10 @@ export const users = [
     email: "john@gmail.com",
     username: "johnd",
     password: "m38rmF$",
-    name: {
-      firstname: "john",
-      lastname: "doe",
-    },
+    name: "john",
     phone: "1-570-236-7033",
     image: "https://randomuser.me/api/portraits/men/1.jpg",
+    gender: "male",
     __v: 0,
   },
   {
@@ -39,12 +37,10 @@ export const users = [
     email: "morrison@gmail.com",
     username: "mor_2314",
     password: "83r5^_",
-    name: {
-      firstname: "david",
-      lastname: "morrison",
-    },
+    name: "david",
     phone: "1-570-236-7033",
     image: "https://randomuser.me/api/portraits/women/2.jpg",
+    gender: "female",
     __v: 0,
   },
   {
@@ -62,12 +58,10 @@ export const users = [
     email: "kevin@gmail.com",
     username: "kevinryan",
     password: "kev02937@",
-    name: {
-      firstname: "kevin",
-      lastname: "ryan",
-    },
+    name: "kevin",
     phone: "1-567-094-1345",
     image: "https://randomuser.me/api/portraits/men/3.jpg",
+    gender: "male",
     __v: 0,
   },
   {
@@ -85,12 +79,10 @@ export const users = [
     email: "don@gmail.com",
     username: "donero",
     password: "ewedon",
-    name: {
-      firstname: "don",
-      lastname: "romer",
-    },
+    name: "don",
     phone: "1-765-789-6734",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
+    gender: "female",
     __v: 0,
   },
   {
@@ -108,12 +100,10 @@ export const users = [
     email: "alice@gmail.com",
     username: "alice123",
     password: "alicepass",
-    name: {
-      firstname: "alice",
-      lastname: "smith",
-    },
+    name: "alice",
     phone: "1-310-555-1234",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
+    gender: "male",
     __v: 0,
   },
 ];

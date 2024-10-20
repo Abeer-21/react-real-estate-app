@@ -9,7 +9,9 @@ const Users = (props) => {
     <section className="users">
       {users.map((user) => (
         <div className="user" key={user.id}>
-          <User user={user} />
+          <User 
+          user={user}
+           />
         </div>
       ))}
     </section>

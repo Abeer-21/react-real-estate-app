@@ -17,6 +17,8 @@
 
 img {
   border-radius: 8px;
+  width: 80%;
+  height: auto;
 }
 
 @media (max-width: 750px) {
