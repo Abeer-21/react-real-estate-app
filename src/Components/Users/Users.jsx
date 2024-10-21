@@ -2,16 +2,12 @@ import React from "react";
 
 import User from "./User";
 
-const Users = (props) => {
-  const users = props.data;
-
+const Users = ({ usersList, onHandelDeleteUser }) => {
   return (
     <section className="users">
-      {users.map((user) => (
+      {usersList.map((user) => (
         <div className="user" key={user.id}>
-          <User 
-          user={user}
-           />
+          <User user={user} onHandelDeleteUser={onHandelDeleteUser} />
         </div>
       ))}
     </section>

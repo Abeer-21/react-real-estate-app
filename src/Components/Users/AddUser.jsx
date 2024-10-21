@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 
 import { uploadImageToCloudinary } from "../../Utility/UploadImage";
 
-const AddUser = () => {
+const AddUser = (props) => {
   const [errors, setErrors] = useState({});
   const [user, setUser] = useState({
     name: "",
@@ -46,7 +46,7 @@ const AddUser = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(await uploadImageToCloudinary(user.image));
+    const imgeURL = await uploadImageToCloudinary(user.image);
 
     if (validateInput()) {
       const newUser = {
@@ -56,9 +56,11 @@ const AddUser = () => {
         gender: user.gender,
         email: user.email,
         phone: user.phone,
-        image: user.image,
+        image: imgeURL,
       };
-      console.log(newUser);
+      console.log("new user ", newUser);
+
+      props.onHandleAddUser(newUser);
 
       // Reset
       setUser({

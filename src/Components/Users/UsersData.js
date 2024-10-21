@@ -2,16 +2,6 @@ import React from "react";
 
 export const users = [
   {
-    address: {
-      geolocation: {
-        lat: "-37.3159",
-        long: "81.1496",
-      },
-      city: "kilcoole",
-      street: "new road",
-      number: 7682,
-      zipcode: "12926-3874",
-    },
     id: 1,
     email: "john@gmail.com",
     username: "johnd",
@@ -23,16 +13,6 @@ export const users = [
     __v: 0,
   },
   {
-    address: {
-      geolocation: {
-        lat: "-37.3159",
-        long: "81.1496",
-      },
-      city: "kilcoole",
-      street: "Lovers Ln",
-      number: 7267,
-      zipcode: "12926-3874",
-    },
     id: 2,
     email: "morrison@gmail.com",
     username: "mor_2314",
@@ -44,16 +24,6 @@ export const users = [
     __v: 0,
   },
   {
-    address: {
-      geolocation: {
-        lat: "40.3467",
-        long: "-30.1310",
-      },
-      city: "Cullman",
-      street: "Frances Ct",
-      number: 86,
-      zipcode: "29567-1452",
-    },
     id: 3,
     email: "kevin@gmail.com",
     username: "kevinryan",
@@ -65,16 +35,6 @@ export const users = [
     __v: 0,
   },
   {
-    address: {
-      geolocation: {
-        lat: "50.3467",
-        long: "-20.1310",
-      },
-      city: "San Antonio",
-      street: "Hunters Creek Dr",
-      number: 6454,
-      zipcode: "98234-1734",
-    },
     id: 4,
     email: "don@gmail.com",
     username: "donero",
@@ -86,16 +46,6 @@ export const users = [
     __v: 0,
   },
   {
-    address: {
-      geolocation: {
-        lat: "34.0522",
-        long: "-118.2437",
-      },
-      city: "Los Angeles",
-      street: "Hollywood Blvd",
-      number: 1234,
-      zipcode: "90028",
-    },
     id: 5,
     email: "alice@gmail.com",
     username: "alice123",

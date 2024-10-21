@@ -5,23 +5,30 @@ import AddUser from "./Users/AddUser";
 import { users } from "./Users/UsersData";
 
 export default function App() {
-  //const [users, setUsers] = useState(UsersData); I will do it later
 
-  const handelAddUser = (newUser) => {
-    setUsers((prevProducts) => {
-      return [...prevProducts, newUser];
+  const [usersList, setUsers] = useState(users);
+  const [cart, setCart] = useState([]);
+
+  const handleAddUser = (newUser) => {
+    setUsers((prevUsers) => {
+      return [...prevUsers, newUser];
     });
   };
 
-  const handelDeleteUser = (id) => {
-    const filteredUsers = users.filter((user) => user.id !== id);
+  const handleDeleteUser = (id) => {
+    const filteredUsers = usersList.filter((user) => user.id !== id);
     setUsers(filteredUsers);
   };
-
   return (
     <>
-      <AddUser />
-      <div>{users.length > 0 ? <Users data={users} /> : "No users found!"}</div>
+      <AddUser onHandleAddUser={handleAddUser} />
+      <div>
+        {usersList.length > 0 ? (
+          <Users usersList={usersList} onHandelDeleteUser={handleDeleteUser} />
+        ) : (
+          "No users found!"
+        )}
+      </div>
     </>
   );
 }
