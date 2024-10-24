@@ -1,8 +1,8 @@
 export const uploadImageToCloudinary = async (file) => {
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("upload_preset", "rhzzmyc4"); // Ensure you have set up an upload preset in Cloudinary
-  formData.append("folder", "e-commerce-sda2-onsite"); // Specify the folder where you want to store the image
+  formData.append("upload_preset", "rhzzmyc4");
+  formData.append("folder", "e-commerce-sda2-onsite");
 
   try {
     const response = await fetch(

@@ -1,34 +1,67 @@
-import React, { useState } from "react";
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Users from "./Users/Users";
-import AddUser from "./Users/AddUser";
-import { users } from "./Users/UsersData";
+import Home from "../Pages/Home";
+import Contact from "../pages/contact";
+import Properties from "./property/properties";
+import AddProperty from "./Property/AddProperty";
+import EditProperty from "./Property/EditProperty";
+import About from "../pages/about";
+import Navbar from "../routes/navbar";
+import Login from "../Pages/Login";
+import ErrorPage from "../Pages/ErrorPage";
+import { PropertyContext } from "./property/propertyContext";
 
-export default function App() {
+import { propertiesData } from "./data/propertiesData";
 
-  const [usersList, setUsers] = useState(users);
-  const [cart, setCart] = useState([]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navbar />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+      {
+        path: "properties",
+        element: <Properties />,
+      },
+      {
+        path: "add-property",
+        element: <AddProperty />,
+      },
+      {
+        path: "edit-property",
+        element: <EditProperty />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+    ],
+  },
+]);
 
-  const handleAddUser = (newUser) => {
-    setUsers((prevUsers) => {
-      return [...prevUsers, newUser];
-    });
+const App = () => {
+  const deleteProperty = () => {
+    console.log("delete propery");
   };
-
-  const handleDeleteUser = (id) => {
-    const filteredUsers = usersList.filter((user) => user.id !== id);
-    setUsers(filteredUsers);
-  };
+  console.log("property data in app ", propertiesData);
   return (
-    <>
-      <AddUser onHandleAddUser={handleAddUser} />
-      <div>
-        {usersList.length > 0 ? (
-          <Users usersList={usersList} onHandelDeleteUser={handleDeleteUser} />
-        ) : (
-          "No users found!"
-        )}
-      </div>
-    </>
+    <PropertyContext.Provider value={{propertiesData, deleteProperty }}>
+      <RouterProvider router={router} />
+    </PropertyContext.Provider>
   );
-}
+};
+
+export default App;

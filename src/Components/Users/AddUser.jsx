@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
 
-import { uploadImageToCloudinary } from "../../Utility/UploadImage";
+import { uploadImageToCloudinary } from "../../utility/uploadImage"; 
 
 const AddUser = (props) => {
   const [errors, setErrors] = useState({});

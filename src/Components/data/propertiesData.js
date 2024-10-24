@@ -1,0 +1,42 @@
+export const propertiesData = [
+  {
+    id: 1,
+    title: "Luxury Apartment",
+    location: "New York, NY",
+    price: 1200000,
+    image: "",
+    description: "A beautiful luxury apartment in the heart of the city.",
+  },
+  {
+    id: 2,
+    title: "Cozy Cottage",
+    location: "Lake Tahoe, CA",
+    price: 750000,
+    image: "https://example.com/images/property2.jpg",
+    description: "A charming cottage with a stunning lake view.",
+  },
+  {
+    id: 3,
+    title: "Modern Villa",
+    location: "Miami, FL",
+    price: 3500000,
+    image: "https://example.com/images/property3.jpg",
+    description: "A modern villa with all amenities and a private pool.",
+  },
+  {
+    id: 4,
+    title: "Suburban Family Home",
+    location: "Austin, TX",
+    price: 500000,
+    image: "https://example.com/images/property4.jpg",
+    description: "A spacious family home located in a friendly neighborhood.",
+  },
+  {
+    id: 5,
+    title: "Penthouse Suite",
+    location: "Los Angeles, CA",
+    price: 2500000,
+    image: "https://example.com/images/property5.jpg",
+    description: "An exclusive penthouse with breathtaking city views.",
+  },
+];
