@@ -1,12 +1,27 @@
-// Property.js
 import React from "react";
-//import luxuryApartment from "../../images/luxuryApartment.png";
+import { useContext } from "react";
 
-const Property = ({ property, onHandleDeleteProperty }) => {
-  const { title, location, price, description, id } = property;
+import { PropertyContext } from "../../context/propertyContext";
 
-  const handleDelete = () => {
-    onHandleDeleteProperty(id);
+const Property = ({ property }) => {
+  const { properties, setProperties } = useContext(PropertyContext);
+
+  const { title, location, price, description, id, image } = property;
+
+  const handleDelete = (id) => {
+    const filteredProducts = properties.filter(
+      (property) => property.id !== id
+    );
+    setProperties(filteredProducts);
+  };
+  const handleEdit = (updatedProperty) => {
+    setProperties((prevProperties) =>
+      prevProperties.map((property) =>
+        property.id === updatedProperty.id
+          ? { ...property, ...updatedProperty }
+          : property
+      )
+    );
   };
 
   return (
@@ -14,9 +29,10 @@ const Property = ({ property, onHandleDeleteProperty }) => {
       <h1>{title}</h1>
       <p>Location: {location}</p>
       <p>Price: ${price}</p>
-      {/* <img src={luxuryApartment} alt={title} /> */}
+      <img src={image} alt={title} />
       <p>{description}</p>
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={() => handleDelete(id)}>Delete</button>
+      <button onClick={() => handleEdit(property.id)}>Edit</button>
     </div>
   );
 };

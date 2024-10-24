@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Home from "../Pages/Home";
+import Home from "../pages/home";
 import Contact from "../pages/contact";
 import Properties from "./property/properties";
-import AddProperty from "./Property/AddProperty";
-import EditProperty from "./Property/EditProperty";
+import AddProperty from "./property/addProperty";
+import EditProperty from "./property/editProperty";
 import About from "../pages/about";
 import Navbar from "../routes/navbar";
 import Login from "../Pages/Login";
 import ErrorPage from "../Pages/ErrorPage";
-import { PropertyContext } from "./property/propertyContext";
+import PropertyProvider from "../context/propertyContext";
 
-import { propertiesData } from "./data/propertiesData";
 
 const router = createBrowserRouter([
   {
@@ -53,14 +52,32 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const deleteProperty = () => {
-    console.log("delete propery");
-  };
-  console.log("property data in app ", propertiesData);
+  // const [properties, setProperties] = useState(propertiesData);
+
+  // const addProperty = (newProperty) => {
+  //   setProperties((prevProperties) => [...prevProperties, newProperty]);
+  // };
+
+  // const updateProperty = (updatedProperty) => {
+  //   setProperties((prevProperties) =>
+  //     prevProperties.map((property) =>
+  //       property.id === updatedProperty.id
+  //         ? { ...property, ...updatedProperty }
+  //         : property
+  //     )
+  //   );
+  // };
+
+  // const deleteProperty = (propertyId) => {
+  //   setProperties((prevProperties) =>
+  //     prevProperties.filter((property) => property.id !== propertyId)
+  //   );
+  // };
+
   return (
-    <PropertyContext.Provider value={{propertiesData, deleteProperty }}>
+    <PropertyProvider>
       <RouterProvider router={router} />
-    </PropertyContext.Provider>
+    </PropertyProvider>
   );
 };
 

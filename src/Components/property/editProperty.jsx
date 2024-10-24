@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+import { PropertyContext } from "../../context/propertyContext";
+import { uploadImageToCloudinary } from "../../utility/uploadImage";
 
-import { PropertyContext } from "./propertyContext";
-
-const EditProperty = ({ existingProperty }) => {
+const EditProperty = (props) => {
   const { updateProperty } = useContext(PropertyContext);
+  const { existingProperty } = props; 
   const [errors, setErrors] = useState({});
   const [property, setProperty] = useState({
     title: "",
@@ -15,7 +16,6 @@ const EditProperty = ({ existingProperty }) => {
 
   const fileInputRef = useRef(null);
 
-  // Set initial property data when existingProperty is provided
   useEffect(() => {
     if (existingProperty) {
       setProperty(existingProperty);
@@ -33,7 +33,7 @@ const EditProperty = ({ existingProperty }) => {
   const handleImageChange = (event) => {
     setProperty((prevState) => ({
       ...prevState,
-      image: event.target.files[0],
+      image: event.target.files[0], 
     }));
   };
 
@@ -51,23 +51,29 @@ const EditProperty = ({ existingProperty }) => {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // Return true if no errors
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    let imageURL = property.image;
+
+    if (property.image instanceof File) {
+      imageURL = await uploadImageToCloudinary(property.image);
+    }
+
     if (validateInput()) {
       const updatedProperty = {
-        id: property.id, // Preserve the existing ID
+        id: property.id, 
         title: property.title,
         location: property.location,
         price: parseFloat(property.price),
         description: property.description,
-        image: property.image, // Handle image upload separately if necessary
+        image: imageURL,
       };
 
-      updateProperty(updatedProperty); // Update property using context
+      updateProperty(updatedProperty); 
 
       // Reset form
       resetForm();
@@ -84,7 +90,7 @@ const EditProperty = ({ existingProperty }) => {
       description: "",
       image: null,
     });
-    if (fileInputRef.current) fileInputRef.current.value = null; // Clear file input
+    if (fileInputRef.current) fileInputRef.current.value = null; 
   };
 
   return (

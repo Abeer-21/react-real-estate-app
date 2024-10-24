@@ -4,7 +4,7 @@ export const propertiesData = [
     title: "Luxury Apartment",
     location: "New York, NY",
     price: 1200000,
-    image: "",
+    image: "http://localhost:5173/images/luxuryApartment.png", 
     description: "A beautiful luxury apartment in the heart of the city.",
   },
   {
@@ -12,7 +12,7 @@ export const propertiesData = [
     title: "Cozy Cottage",
     location: "Lake Tahoe, CA",
     price: 750000,
-    image: "https://example.com/images/property2.jpg",
+    image: "http://localhost:5173/images/cozyCottage.png", 
     description: "A charming cottage with a stunning lake view.",
   },
   {
@@ -20,7 +20,7 @@ export const propertiesData = [
     title: "Modern Villa",
     location: "Miami, FL",
     price: 3500000,
-    image: "https://example.com/images/property3.jpg",
+    image: "http://localhost:5173/images/modernVilla.png", 
     description: "A modern villa with all amenities and a private pool.",
   },
   {
@@ -28,7 +28,7 @@ export const propertiesData = [
     title: "Suburban Family Home",
     location: "Austin, TX",
     price: 500000,
-    image: "https://example.com/images/property4.jpg",
+    image: "http://localhost:5173/images/suburbanHome.png", 
     description: "A spacious family home located in a friendly neighborhood.",
   },
   {
@@ -36,7 +36,7 @@ export const propertiesData = [
     title: "Penthouse Suite",
     location: "Los Angeles, CA",
     price: 2500000,
-    image: "https://example.com/images/property5.jpg",
+    image: "http://localhost:5173/images/penthouseSuite.png", 
     description: "An exclusive penthouse with breathtaking city views.",
   },
 ];

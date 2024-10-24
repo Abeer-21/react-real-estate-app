@@ -1,9 +1,11 @@
 import React, { useState, useRef, useContext } from "react";
 import { nanoid } from "nanoid";
-import { PropertyContext } from "./propertyContext";
+import { PropertyContext } from "../../context/propertyContext";
+import { useNavigate } from "react-router-dom";
+import { uploadImageToCloudinary } from "../../utility/uploadImage";
 
 const AddProperty = () => {
-  const { addProperty } = useContext(PropertyContext);
+  const { setProperties } = useContext(PropertyContext);
   const [errors, setErrors] = useState({});
   const [property, setProperty] = useState({
     title: "",
@@ -14,8 +16,8 @@ const AddProperty = () => {
   });
 
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
-  // Handle input changes for text fields
   const handlePropertyChange = (event) => {
     const { name, value } = event.target;
     setProperty((prevState) => ({
@@ -24,7 +26,6 @@ const AddProperty = () => {
     }));
   };
 
-  // Handle image file selection
   const handleImageChange = (event) => {
     setProperty((prevState) => ({
       ...prevState,
@@ -32,7 +33,6 @@ const AddProperty = () => {
     }));
   };
 
-  // Validate input fields
   const validateInput = () => {
     const newErrors = {};
     if (!property.title.trim()) newErrors.title = "Title is required";
@@ -47,12 +47,16 @@ const AddProperty = () => {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0; // Return true if no errors
+    return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
+  const addProperty = (newProperty) => {
+    setProperties((prevProperties) => [...prevProperties, newProperty]);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const imgeURL = await uploadImageToCloudinary(property.image);
 
     if (validateInput()) {
       const newProperty = {
@@ -61,19 +65,19 @@ const AddProperty = () => {
         location: property.location,
         price: parseFloat(property.price),
         description: property.description,
-        image: property.image, // Handle image upload separately if necessary
+        image: imgeURL,
       };
 
-      addProperty(newProperty); // Add property using context
+      addProperty(newProperty);
 
-      // Reset form fields
+      navigate("/properties");
+
       resetForm();
     } else {
       console.log(errors);
     }
   };
 
-  // Reset form fields
   const resetForm = () => {
     setProperty({
       title: "",
@@ -82,7 +86,7 @@ const AddProperty = () => {
       description: "",
       image: null,
     });
-    if (fileInputRef.current) fileInputRef.current.value = null; // Clear file input
+    if (fileInputRef.current) fileInputRef.current.value = null;
   };
 
   return (

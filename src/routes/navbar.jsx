@@ -14,13 +14,10 @@ const Navbar = () => {
               <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <Link to="/listings">Listings</Link>
+              <Link to="/properties">Listings</Link>
             </li>
             <li>
               <Link to="/add-property">Add Property</Link>
-            </li>
-            <li>
-              <Link to="/edit-property">Edit Property</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
@@ -28,7 +25,7 @@ const Navbar = () => {
           </ul>
         </nav>
       </header>
-      <Outlet/>
+      <Outlet />
     </>
   );
 };

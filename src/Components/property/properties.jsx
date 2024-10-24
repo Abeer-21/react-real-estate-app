@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import Property from "../property/property";
-import { PropertyContext } from "./propertyContext";
+import { PropertyContext } from "../../context/propertyContext";
+import EditProperty from "./editProperty";
 
 const Properties = () => {
-  const { properties, deleteProperty } = useContext(PropertyContext);
-  console.log("properties ", properties);
+  const { properties } = useContext(PropertyContext);
+
   return (
     <section className="Properties">
       {properties.map((property) => (
         <div className="Property" key={property.id}>
           <Property
             property={property}
-            onHandleDeleteProperty={deleteProperty}
           />
         </div>
       ))}
