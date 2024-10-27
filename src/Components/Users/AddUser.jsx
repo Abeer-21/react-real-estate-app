@@ -4,11 +4,12 @@ import { nanoid } from "nanoid";
 import { uploadImageToCloudinary } from "../../utility/uploadImage"; 
 
 const AddUser = (props) => {
+  const { setUsers } = useContext(UserContext);
   const [errors, setErrors] = useState({});
   const [user, setUser] = useState({
     name: "",
     username: "",
-    gender: "female",
+    gender: "",
     email: "",
     phone: "",
     image: "",
@@ -58,10 +59,7 @@ const AddUser = (props) => {
         phone: user.phone,
         image: imgeURL,
       };
-      console.log("new user ", newUser);
-
-      props.onHandleAddUser(newUser);
-
+       addUser(newUser);
       // Reset
       setUser({
         name: "",

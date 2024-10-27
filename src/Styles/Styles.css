@@ -1,34 +1,33 @@
-.users {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+/* Styles.css */
+.footer {
+  display: flex;
+  margin-top: auto;
+  background-color: #1976d2; /* MUI primary color */
+  color: white;
+  padding: 10px 0; /* Adjust the padding as needed */
 }
 
-.user {
-  background-color: bisque;
-  padding: 1rem;
-  border-radius: 8px;
-  transition: transform 0.2s;
+.footer-text {
+  text-align: center;
+  font-size: 0.9rem; /* Adjust font size as needed */
 }
 
-.user:hover {
-  transform: scale(1.02);
+.property-img {
+  width: 100%; /* Make the image responsive */
+  height: 200px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
+  border-radius: 5px; /* Optional: add some rounding to corners */
 }
 
-img {
-  border-radius: 8px;
-  width: 80%;
-  height: auto;
+.property-card {
+  margin: 20px; /* Space around the card */
+  padding-bottom: 30px;
+  max-width: 400px; /* Max width for the card */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  height: 100%; /* Ensure all cards have the same height */
 }
 
-@media (max-width: 750px) {
-  .users {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .users {
-    grid-template-columns: repeat(1, 1fr);
-  }
+.card-content {
+  flex-grow: 1; /* Allow the content area to grow */
 }
