@@ -73,11 +73,7 @@ const EditProperty = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    let imageURL = property.image;
-
-    if (property.image instanceof File) {
-      imageURL = await uploadImageToCloudinary(property.image);
-    }
+    let imageURL = await uploadImageToCloudinary(property.image);
 
     if (validateInput()) {
       const updatedProperty = {

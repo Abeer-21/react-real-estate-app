@@ -1,63 +1,45 @@
 # React Real Estate App
 
-## How to start the Assignment
+This is a **Real Estate Application** built with **React**, which allows users to view, add, update, and delete property listings. The app also includes features like conditional rendering, dynamic mapping of property cards, form validation, and client-side routing for different pages.
 
-- Fork and clone the project
-- Go to root directory and run "npm install"
-- run the app "npm run dev"
+## Features
 
-## Necessary Info
+1. **Display Property Listings:**
+   - Property details such as title, location, price, and image are displayed in a visually appealing way using reusable React components.
 
-- Remember to do one step at a time and follow the order of the tasks.
-- You can use CSS/Bootstrap/Tailwind/MUI etc. for styling.
+2. **Create, Delete, and Edit Property:**
+   - Users can add new properties through a form, delete existing properties, and update property details.
 
-## A. Basic Requirements
+3. **Dynamic Property Cards:**
+   - Property listings are dynamically rendered by mapping over an array of property data, allowing for easy scalability.
 
-### A1. JSX, Functional Components
+4. **Form Validation:**
+   - Form inputs are validated to ensure proper data entry (e.g., price must be a number, location cannot be empty).
 
-1. Create a simple React component: "Property" to display a property listing with details like title, location, image, and price using JSX and JavaScript expressions.
+5. **Client-Side Routing:**
+   - Different pages like "Property List", "Add Property", "Edit Property", and "Login" are routed using **React Router**. Protected routes are also implemented to restrict access to authenticated users.
 
-2. Break the UI into reusable functional components: Split the property details into separate components (PropertyTitle, PropertyLocation, PropertyPrice, PropertyImage) and compose them in the Property component.
+6. **Persistence Using Local Storage (Bonus):**
+   - The property list is persisted between page reloads using **localStorage**.
 
-3. Style your components: Apply CSS or any styling framework to make the property listing visually appealing.
+## Demo
 
-### A2. Props, Mapping, Conditional Rendering
+You can check out the live demo of the Real Estate App at the following link:
 
-1. Pass data between components using props and destructuring: Pass property data (e.g., title, location, price, imageUrl) as props and destructure them inside each component.
+[Deploy Link](#insert-deploy-link-here)
 
-2. Mapping Components: Dynamically render components by Creating an array of properties and render a list of property cards by mapping over the array.
+## Technologies Used
 
-3. Conditional Rendering: if the array had no property then display some helpful message to the User.
+- **React** for building the user interface.
+- **CSS/Bootstrap/Tailwind/MUI** for styling.
+- **React Router** for client-side routing.
+- **LocalStorage** for persisting property data.
 
-### A3. Event Handling, useState Hook, Controlled Component
+## How to Run Locally
 
-1. Create Property: Implement a form component "AddPropertyForm" that allows users to create a new property.
+To run the Real Estate App locally on your machine, follow these steps:
 
-2. Delete Property: Remove a property from the list.
+1. Clone this repository:
 
-3. Deployment: Deploy the real estate app using platforms like Vercel, Netlify, or GitHub Pages
-
-## B. Additional Requirements
-
-### B1. Layout, Validation
-
-1. Create a responsive basic layout for the app: Implement a common layout that includes a header, footer, and a main content area where different components will be rendered.
-
-2. Form Validation: Add validation to ensure proper data entry (e.g., price must be a number, location cannot be empty). Feel free to use any 3rd party library such as yuk, useForm etc.
-
-### B2. React Router
-
-1. Implement client-side routing using React Router: Add multiple routes for different pages (e.g., "Property List", "Add Property", "Edit Property", "Login").
-
-2. Authentication and Protected Routes: Protect certain routes in the app using authentication. If the user is not logged in send them to the Login page before accessing a protected route.
-
-## C. Bonus Requirements
-
-1. Persist Data Using Local Storage: Persist the property list between page reloads using localStorage.
-2. Update Property: Edit an existing property’s details.
-
-## Deadline of this Assignment: 26th of October, 2024
-
-&hearts; Happy Coding &hearts;
-It is now or never.
-Believe in Yourself and You are halfway there.
+   ```bash
+   git clone https://github.com/Abeer-21/react-real-estate-app
